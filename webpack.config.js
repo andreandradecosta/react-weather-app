@@ -5,6 +5,10 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 })
 
+var Dashboard = require('webpack-dashboard')
+var DashboarPlugin = require('webpack-dashboard/plugin')
+var dashboard = new Dashboard()
+
 module.exports = {
 
     entry:[
@@ -19,5 +23,5 @@ module.exports = {
             {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
         ]
     },
-    plugins: [HtmlWebpackPluginConfig]
+    plugins: [HtmlWebpackPluginConfig, new DashboarPlugin(dashboard.setData)]
 };
