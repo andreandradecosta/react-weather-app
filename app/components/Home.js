@@ -16,17 +16,30 @@ var styles = {
     color: '#fff',
     fontWeight: 100,
   },
+  form: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      maxWidth:'300px',
+      alignSelf:'right'
+  },
+  button: {
+      margin:'10px'
+  }
 }
 
 
 function Home(props) {
     return (
         <div style={styles.container}>
-            <h1>Enter a City and State</h1>
-            <form>
-                <input type='text' placeholder='Rio de Janeiro, RJ'/>
-                <button type='button'>Get Weather</button>
-            </form>
+            <h1 style={styles.header}>Enter a City and State</h1>
+            <div>
+                <form style={styles.form}>
+                    <input className='form-control' type='text' placeholder='Rio de Janeiro, RJ'/>
+                    <button className='btn btn-success' type='button' style={styles.button}>Get Weather</button>
+                </form>
+            </div>
         </div>
     )
 }
