@@ -21,14 +21,27 @@ function getFormStyle(props) {
 function CityPrompt(props) {
     return (
         <div style={getFormStyle(props)}>
-            <input className='form-control' type='text' placeholder='Rio de Janeiro, RJ'/>
-            <button className='btn btn-success' type='button' style={styles.button}>Get Weather</button>
+            <input
+                    className='form-control'
+                    type='text'
+                    placeholder='Rio de Janeiro, RJ'
+                    onChange={props.onUpdateCity}
+                    value={props.city}/>
+            <button
+                    className='btn btn-success'
+                    type='button'
+                    style={styles.button}
+                    onClick={props.onSubmitQuery}>
+                Get Weather
+            </button>
         </div>
     )
 }
 
 CityPrompt.propTypes = {
-    direction: PropTypes.string.isRequired
+    direction: PropTypes.string.isRequired,
+    onUpdateCity: PropTypes.func.isRequired,
+    onSubmitQuery: PropTypes.func.isRequired
 }
 
 module.exports = CityPrompt;

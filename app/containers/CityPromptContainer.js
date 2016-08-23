@@ -6,14 +6,29 @@ var CityPromptContainer = React.createClass({
     propTypes: {
         direction: PropTypes.string
     },
-    getDefaultProps() {
+    getDefaultProps: function() {
         return {
             direction: 'column'
         }
     },
+    getInitialState: function() {
+        return {
+            city: ''
+        }
+    },
+    handleUpdateCity: function(e) {
+        this.setState({
+            city: e.target.value
+        })
+    },
+    handleQuery: function(e) {
+        console.log(this.state.city);
+    },
     render: function() {
         return <CityPrompt
-                    direction={this.props.direction}/>
+                    direction={this.props.direction}
+                    onUpdateCity={this.handleUpdateCity}
+                    onSubmitQuery={this.handleQuery}/>
     }
 })
 
