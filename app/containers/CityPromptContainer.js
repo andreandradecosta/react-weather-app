@@ -1,6 +1,7 @@
 var React = require('react')
 var CityPrompt = require('../components/CityPrompt')
 var PropTypes = React.PropTypes
+var api = require('../helpers/api')
 
 var CityPromptContainer = React.createClass({
     propTypes: {
@@ -13,7 +14,7 @@ var CityPromptContainer = React.createClass({
     },
     getInitialState: function() {
         return {
-            city: ''
+            city: 'rio de janeiro, rj'
         }
     },
     handleUpdateCity: function(e) {
@@ -22,10 +23,14 @@ var CityPromptContainer = React.createClass({
         })
     },
     handleQuery: function(e) {
-        console.log(this.state.city);
+        api.getCurrentWeather(this.state.city)
+            .then(function(data) {
+                console.log(data);
+            })
     },
     render: function() {
         return <CityPrompt
+                    city={this.state.city}
                     direction={this.props.direction}
                     onUpdateCity={this.handleUpdateCity}
                     onSubmitQuery={this.handleQuery}/>

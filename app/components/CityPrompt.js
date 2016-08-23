@@ -39,6 +39,7 @@ function CityPrompt(props) {
 }
 
 CityPrompt.propTypes = {
+    city: PropTypes.string,
     direction: PropTypes.string.isRequired,
     onUpdateCity: PropTypes.func.isRequired,
     onSubmitQuery: PropTypes.func.isRequired
