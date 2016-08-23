@@ -1,7 +1,7 @@
 var axios = require('axios')
 
 var url = 'http://api.openweathermap.org/data/2.5'
-var api_key = ''
+var api_key = 'b714ec74bbab5650795063cb0fdf5fbe'
 
 function openWeatherCurrent(city) {
     return axios.get(url + '/weather', {
