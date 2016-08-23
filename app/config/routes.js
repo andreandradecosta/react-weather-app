@@ -2,6 +2,7 @@ var React = require('react')
 var ReactRouter = require('react-router')
 var MainContainer = require('../containers/MainContainer')
 var Home = require('../components/Home')
+var ForecastContainer = require('../containers/ForecastContainer')
 
 var Router = ReactRouter.Router
 var Route = ReactRouter.Route
@@ -12,6 +13,7 @@ var routes = (
     <Router history={hashHistory}>
         <Route path='/' component={MainContainer}>
             <IndexRoute component={Home} />
+            <Route path='forecast/:city' component={ForecastContainer} />
         </Route>
     </Router>
 )

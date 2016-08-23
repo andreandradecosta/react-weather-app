@@ -7,6 +7,9 @@ var CityPromptContainer = React.createClass({
     propTypes: {
         direction: PropTypes.string
     },
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
     getDefaultProps: function() {
         return {
             direction: 'column'
@@ -23,10 +26,7 @@ var CityPromptContainer = React.createClass({
         })
     },
     handleQuery: function(e) {
-        api.getCurrentWeather(this.state.city)
-            .then(function(data) {
-                console.log(data);
-            })
+        this.context.router.push("/forecast/" + this.state.city)
     },
     render: function() {
         return <CityPrompt
