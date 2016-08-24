@@ -15,7 +15,7 @@ var ForecastContainer = React.createClass({
     },
     componentWillReceiveProps: function(nextProps) {
         this.setState({
-            isLoading: true
+            isLoading: true,
         })
         this.queryData(nextProps.routeParams.city)
     },
