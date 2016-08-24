@@ -1,7 +1,6 @@
 var React = require('react')
 var CityPrompt = require('../components/CityPrompt')
 var PropTypes = React.PropTypes
-var api = require('../helpers/api')
 
 var CityPromptContainer = React.createClass({
     propTypes: {
