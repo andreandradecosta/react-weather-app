@@ -20,7 +20,7 @@ var ForecastContainer = React.createClass({
         this.queryData(nextProps.routeParams.city)
     },
     queryData: function(city) {
-        api.getCurrentWeather(city)
+        api.getForecast(city)
         .then(function(data) {
             console.log(data);
             this.setState({

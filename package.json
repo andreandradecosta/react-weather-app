@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.13.1",
+    "moment": "^2.14.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-progress-bar-plus": "^1.2.0",
