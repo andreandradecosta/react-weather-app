@@ -4,6 +4,9 @@ var api = require('../helpers/api')
 
 
 var ForecastContainer = React.createClass({
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
     getInitialState: function() {
         return {
             isLoading: true,
@@ -22,17 +25,25 @@ var ForecastContainer = React.createClass({
     queryData: function(city) {
         api.getForecast(city)
         .then(function(data) {
-            console.log(data);
             this.setState({
                 isLoading: false,
                 forecastData: data
             })
         }.bind(this))
     },
+    handleDaySelection: function(dayData) {
+        this.context.router.push({
+            pathname: '/detail/' + this.props.routeParams.city,
+            state: {
+                details: dayData
+            }
+        })
+    },
     render: function() {
         return <Forecast
                     forecastData={this.state.forecastData}
-                    isLoading={this.state.isLoading} />
+                    isLoading={this.state.isLoading}
+                    onDaySelected={this.handleDaySelection}/>
     }
 })
 
