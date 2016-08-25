@@ -6,11 +6,12 @@ var DetailContainer = React.createClass({
     componentDidMount: function() {
         var city = this.props.routeParams.city
         var details = this.props.location.state.details
-        console.log(city)
-        console.log(details);
     },
     render: function() {
-        return <Detail/>
+        return <Detail
+                    city={this.props.routeParams.city}
+                    details={this.props.location.state.details}
+                    />
     }
 })
 

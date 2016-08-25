@@ -3,7 +3,7 @@ var PropTypes = React.PropTypes
 var ProgressBar = require('react-progress-bar-plus');
 require('react-progress-bar-plus/lib/progress-bar.css')
 var Loading = require('./Loading')
-var moment = require('moment')
+var Day = require('./Day')
 
 var styles = {
     container: {
@@ -30,30 +30,9 @@ var styles = {
         flexWrap: 'wrap',
         maxWidth: '1200px',
         margin: '50px auto'
-    },
-    day: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        margin: '35px'
-    },
-    icon: {
-        height: '130px'
     }
 }
 
-moment.locale(window.navigator.language)
-
-function Day(props) {
-    return (
-        <div style={styles.day} onClick={props.handleClick}>
-            <img style={styles.icon}
-                 src={'./app/images/weather-icons/' + props.weather.icon + '.svg'} alt={props.weather.description}/>
-            <h2 style={styles.paragrah}>{moment.unix(props.date).format('dddd, MMM DD')}</h2>
-        </div>
-    )
-}
 
 function Forecast(props) {
     if (props.isLoading) {
